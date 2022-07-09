@@ -36,3 +36,16 @@ heroku config:set JDBC_DATABASE_URL=jdbc:mysql://endereco:3306/database JDBC_DAT
 # Conferir se esta tudo certo
 
 heroku config
+
+# criar na raiz do app arquivo Procfile e add isso: 
+web: java -Dserver.port=$PORT -Dspring.profiles.active=prod $JAVA_OPTS - jar target/algamoney*.jar
+
+# no terminal subir o codigo para produção
+
+git add .
+git commit -m "Preparação para produção"
+
+# verificando o log
+heroku logs --tail
+
+git push heroku master
