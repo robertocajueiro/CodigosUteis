@@ -1,0 +1,38 @@
+# Iniciar o heroku no terminal
+heroku login
+
+git init
+
+# cria app no heroku
+
+heroku create nome-app-api
+
+# Provisionar MySql no heroku - addons jawsdb (precisa add um cartão de credito)
+# Ele GERA o arquivo JAWSDB_URL
+
+heroku addons:create jawsdb
+
+# lista conteudo do arquivo JAWSDB_URL
+
+heroku config:get JAWSDB_URL
+
+# Configurando o produção no heroku arquivo: application-prod.properties (Produção)
+
+algamoney.seguranca.enable-https=true
+
+spring.datasource.url={JDBC_DATABASE_URL}
+spring.datasource.username={JDBC_DATABASE_USERNAME}
+spring.datasource.password={JDBC_DATABASE_PASSWORD}
+
+# No terminal listar os parametros do heroku
+
+heroku config:get JAWSDB_URL
+
+# exemplo: mysql://user:password@endereco:3306/database
+
+# no terminal configurar a conexao com heroku
+heroku config:set JDBC_DATABASE_URL=jdbc:mysql://endereco:3306/database JDBC_DATABASE_USERNAME=user JDBC_DATABASE_PASSWORD=password
+
+# Conferir se esta tudo certo
+
+heroku config
