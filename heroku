@@ -49,3 +49,14 @@ git commit -m "Preparação para produção"
 heroku logs --tail
 
 git push heroku master
+
+
+# deploy front angular
+heroku apps:create algamoneyangular-betocajueiro
+
+git add .
+
+git commit -m "Deploy"
+
+git push heroku master
+
