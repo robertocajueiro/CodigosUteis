@@ -1,8 +1,9 @@
-ng build --configuration=production
+$ ng build --configuration=production
 
 # roda node server html na porta 4200
-node server.js
+$ node server.js
 
+# ARQUIVO server.js
 const express = require('express');
 const app = express();
 const projectName = 'algamoney-ui'
